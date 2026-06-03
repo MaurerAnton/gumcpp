@@ -1,31 +1,35 @@
 # gumcpp — Shell Scripting TUI Toolkit (C++ port of Gum)
 
-A zero-dependency C++ port of [gum](https://github.com/charmbracelet/gum) — a collection of terminal UI components for shell scripts: choose, confirm, filter, format, and more.
+A zero-dependency C++ port of [gum](https://github.com/charmbracelet/gum) — composable terminal UI components for shell scripts.
 
 ## Why gumcpp?
 
-The original [gum](https://github.com/charmbracelet/gum) requires the Go toolchain plus dozens of modules. gumcpp compiles with a single `make` using only C++17 and standard Linux headers.
+The original [gum](https://github.com/charmbracelet/gum) requires Go plus dozens of modules from the charmbracelet ecosystem. gumcpp compiles with a single `make` using only C++17 and pthreads.
 
 ## Quick Start
 
 ```bash
 make
-./gumcpp choose "option a" "option b" "option c"
+echo -e "Option A\nOption B\nOption C" | ./gumcpp choose
 ./gumcpp confirm "Are you sure?"
-./gumcpp filter < file.txt
+./gumcpp input "Enter your name"
 ```
 
-## Features
+## Components
 
-- **choose** — Fuzzy-select from a list of options
-- **confirm** — Yes/no prompt
-- **filter** — Interactive text filter
-- **format** — Style and color text output
-- **input** — Single-line text input
-- **write** — Multi-line text editor
-- **spin** — Show a spinner while running a command
-- **style** — Apply ANSI styles to strings
-- **join** — Combine components
+| Command | Description |
+|---------|-------------|
+| `choose` | Interactive fuzzy selection from stdin |
+| `confirm` | Yes/no prompt with customizable labels |
+| `input` | Single-line text input with placeholder |
+| `filter` | Interactive text filter from stdin |
+| `format` | Apply formatting to text (bold, color, etc.) |
+| `join` | Join arguments with separator |
+| `spin` | Show a spinner while running a command |
+| `style` | Apply ANSI styles (bold, dim, italic, underline, colors) |
+| `write` | Multi-line text input (basic editor) |
+| `table` | Render tabular data from stdin |
+| `log` | Styled log output with levels (info, warn, error, debug) |
 
 ## Build
 
